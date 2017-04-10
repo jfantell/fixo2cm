@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fix O2CM</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+</head>
+<body>
+  <div class="well">
+    <div class="text-center">
+        <h1>Register a Couple for a Competition</h1>
+        <h4><small>Please enter all the following required information<small></h4>
+    </div>
+        <form class="form-group">
+          <label for="cid">Competition ID:</label>
+          <input class="form-control" id="cid" required/>
+          <label for="lid">Leader ID:</label>
+          <input class="form-control" id="lid" required/>
+          <label for="fid">Follower ID:</label>
+          <input class="form-control" id="fid" required/>
+          <label for="level">Registered Level</label>
+          <!-- This [level] should probably be a select, but we can add then when the PHP is added. -->
+          <input class="form-control" id="level" required/>
+          <label for"event">Event:</label>
+          <select class="form-control" id="event">
+            <option id="smooth">Smooth</option>
+            <option id="standard">Standard</option>
+            <option id="rhythm">Rhythm</option>
+            <option id="latin">Latin</option>
+          </select>
+          <h4>Dance:</h4>
+          <label for="d1">Foxtrot:</label>
+          <input type="checkbox" id="d1"/>
+          <label for="d2">Quickstep:</label>
+          <input type="checkbox" id="d2"/>
+          <label for="d3">Tango:</label>
+          <input type="checkbox" id="d3"/>
+          <label for="d4">Waltz:</label>
+          <input type="checkbox" id="d4"/>
+          <div class = "text-center">
+          <button type="submit" class="btn btn-primary text-center">Submit</button>
+          </div>
+        </form>
+</body>
+</html>
