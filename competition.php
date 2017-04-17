@@ -136,7 +136,7 @@ try {
               "dance_id" => $dance_id
             ));
           }
-          header('Location: home.php'); //We could alternatively make a thank you page or success page
+          header('Location: index.php'); //We could alternatively make a thank you page or success page
         }
         else{
           echo "ERR: Not all fields were filled out";

@@ -22,7 +22,7 @@ try {
               "zip" => $_POST['zip'],
               "country" => $_POST['country']
           ));
-          header('Location: home.php'); //We could alternatively make a thank you page or success page
+          header('Location: index.php'); //We could alternatively make a thank you page or success page
         }
         else{
           echo "ERR: Not all fields were filled out";
