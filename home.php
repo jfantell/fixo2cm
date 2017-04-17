@@ -29,6 +29,7 @@
         <button type="button" id="comp" class="btn btn-default">Register a Couple for a Compeititon</button>
         <button type="button" id="newcomp" class="btn btn-basic">Register for a New Competition</button>
         <button type="button" id="dancer" class="btn btn-basic">New Dancer</button>
+        <button type="button" id="users" class="btn btn-basic">View All Dancers</button>
       </div>
   </div>
   <script>
@@ -40,6 +41,9 @@
   });
   $('#dancer').click(function(e){
     location.assign('./dancer.php');
+  });
+  $('#users').click(function(e){
+    location.assign('./lookup.php');
   });
   </script>
 </body>
