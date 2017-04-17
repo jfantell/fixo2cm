@@ -70,10 +70,31 @@ catch(PDOException $e)
             <label for="email">E-mail:</label>
             <input class="form-control" type="email" id="email" name="email" required/>
             <label for="univ">University ID:</label>
-            <input class="form-control" id="univ" name="univ" required/>
+            <?php
+              $servername = "localhost";
+              $username = "root";
+              $password = "";
+              try {
+                $conn = new PDO("mysql:host=$servername;dbname=db_o2cm", $username, $password);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "SELECT university_id, name FROM university";
+                $result = $conn->query($sql);
+                echo "<select class='form-control' id='host' name='host'>";
+                while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                  echo "<option value='".$row['university_id']."'>".$row['name']."</option>";
+                }
+                echo "</select>";
+              }
+              catch(PDOException $e){
+                echo "Connection failed: " . $e->getMessage();
+              }
+            ?>
+
             <label for="llevel">Leader Level:</label>
+            <p class="form-text text-muted">Please enter the level that this person leads at.</p>
             <input class="form-control" id="llevel" name="llevel" required/>
             <label for="flevel">Follower Level:</label>
+            <p class="form-text text-muted">Please enter the level that this person follows at.</p>
             <input class="form-control" id="flevel" name="flevel" required/>
             <div class = "text-center">
             <input type="submit" class="btn btn-primary text-center" name="submit"></input>

@@ -25,34 +25,39 @@
 </head>
 <body>
   <h1>Users</h1>
+
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    try {
+      $dbconn = new PDO("mysql:host=$servername;dbname=db_o2cm", $username, $password);
+      // set the PDO error mode to exception
+      $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  try {
-        $dbconn = new PDO("mysql:host=$servername;dbname=db_o2cm", $username, $password);
-        // set the PDO error mode to exception
-        $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  //display all users by selecting all users with a value of 1
-  $queryString = "SELECT fname,lname,univ,llevel,flevel FROM users WHERE 1";
-  $stmt = $dbconn->prepare($queryString);
-  $stmt->execute();
-  $num = 0;
-  //create a table to display the users in using bootstrap
-  $print = '<Table class = "table"><tr><th>First Name</th><th>Last Name</th><th>University</th><th>Lead Level</th><th>Follow Level</th></tr>';
-  //add each user to the table
-  while($result = $stmt->fetch()){
-    $num +=1;
-    $print = $print.'<tr><td>'.$result['fname'].'</td><td>'.$result['lname'].'</td><td>'.$result['univ'].'</td><td>'.$result['llevel'].'</td><td>'.$result['flevel'].'</td></tr>';
-  }
-  $print = $print.'</table>';
-  //if no users exist, then display that there are no users to display
-  if($num == 0){
-    $print = '<div class="jumbotron"><p>No users to display.</p></div>';
-  }
-  //display the text
-  echo $print;
+      //display all users by selecting all users with a value of 1
+      $queryString = "SELECT u.first_name, u.last_name, c.name, u.leader_level, u.follow_level FROM users u, university c WHERE u.university_id=c.university_id";
+      $stmt = $dbconn->prepare($queryString);
+      $stmt->execute();
+      $num = 0;
+      //create a table to display the users in using bootstrap
+      $print = '<Table class = "table"><tr><th>First Name</th><th>Last Name</th><th>University</th><th>Lead Level</th><th>Follow Level</th></tr>';
+      //add each user to the table
+      while($result = $stmt->fetch()){
+        $num +=1;
+        $print = $print.'<tr><td>'.$result['first_name'].'</td><td>'.$result['last_name'].'</td><td>'.$result['name'].'</td><td>'.$result['leader_level'].'</td><td>'.$result['follow_level'].'</td></tr>';
+      }
+      $print = $print.'</table>';
+      //if no users exist, then display that there are no users to display
+      if($num == 0){
+        $print = '<div class="jumbotron"><p>No users to display.</p></div>';
+      }
+      //display the text
+      echo $print;
+    }
+    catch(PDOException $e){
+      echo "Connection failed: " . $e->getMessage();
+    }
   ?>
 </body>
+</html>

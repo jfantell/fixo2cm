@@ -13,7 +13,7 @@ try {
       if(isset($_POST["submit"])) {
         if(isset($_POST["cid"]) & isset($_POST["lid"]) & isset($_POST["fid"]) & isset($_POST["level"]) & isset($_POST["event"])){
           echo "All fields have been filled out";
-          
+
           //Create new entry in partnerships table
           $statement = $conn->prepare("INSERT INTO partnerships(competition_id, leader_id, follower_id)
           VALUES(:cid, :lid, :fid)");
@@ -59,7 +59,7 @@ try {
 
             //get the dance id
             $dance_id = $conn->lastInsertId();
-            
+
             //insert the dance id and partner id into the partnerdances table
             //many-to-many relationship
             $statement = $conn->prepare("INSERT INTO partnerdances(partner_id, dance_id)
@@ -179,7 +179,7 @@ catch(PDOException $e)
     </div>
         <form class="form-group" method="post" action="">
           <label for="cid">Competition ID:</label>
-          <?php 
+          <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -199,11 +199,13 @@ catch(PDOException $e)
             }
           ?>
           <label for="lid">Leader ID:</label>
+          <p class="form-text text-muted">Please enter the user ID of the leader.</p>
           <input class="form-control" id="lid" name="lid" required/>
           <label for="fid">Follower ID:</label>
+          <p class="form-text text-muted">Please enter the user ID of the follower.</p>
           <input class="form-control" id="fid" name="fid" required/>
           <label for="level">Registered Level</label>
-          <!-- This [level] should probably be a select, but we can add then when the PHP is added. -->
+          <p class="form-text text-muted">Please select level that this couple will dance at.</p>
           <input class="form-control" id="level" name="level" required/>
           <label for"event">Event:</label>
           <select class="form-control" id="event" name="event">
@@ -213,14 +215,14 @@ catch(PDOException $e)
             <option value="latin" id="latin">Latin</option>
           </select>
           <h4>Dance:</h4>
-          <label for="Foxtrot">Foxtrot:</label>
           <input type="checkbox" value="Foxtrot" name="Foxtrot" id="Foxtrot"/>
-          <label for="Quickstep">Quickstep:</label>
+          <label for="Foxtrot">Foxtrot</label>
           <input type="checkbox" value="Quickstep" name="Quickstep" id="Quickstep"/>
-          <label for="Tango">Tango:</label>
+          <label for="Quickstep">Quickstep</label>
           <input type="checkbox" value="Tango" name="Tango" id="Tango"/>
-          <label for="Waltz">Waltz:</label>
+          <label for="Tango">Tango</label>
           <input type="checkbox" value="Waltz" name="Waltz" id="Waltz"/>
+          <label for="Waltz">Waltz</label>
           <div class = "text-center">
           <input type="submit" name="submit" class="btn btn-primary text-center"></input>
           </div>

@@ -26,9 +26,10 @@
     <div class="text-center">
         <h1>Welcome to the RPI O2CM Fix</h1>
         <h4><small>Please select if you'd like to add a new dancer or register for a new competion<small><h4>
-        <button type="button" id="comp" class="btn btn-default">Register a Couple for a Compeititon</button>
-        <button type="button" id="newcomp" class="btn btn-basic">Register for a New Competition</button>
-        <button type="button" id="dancer" class="btn btn-basic">New Dancer</button>
+        <button type="button" id="comp" class="btn btn-primary">Register a Couple for a Compeititon</button>
+        <button type="button" id="newcomp" class="btn btn-info">Register for a New Competition</button>
+        <button type="button" id="dancer" class="btn btn-default">New Dancer</button>
+        <button type="button" id="univ" class="btn btn-success">New University</button>
         <button type="button" id="users" class="btn btn-basic">View All Dancers</button>
       </div>
   </div>
@@ -44,6 +45,9 @@
   });
   $('#users').click(function(e){
     location.assign('./lookup.php');
+  });
+  $('#univ').click(function(e){
+    location.assign('./new_univ.php');
   });
   </script>
 </body>

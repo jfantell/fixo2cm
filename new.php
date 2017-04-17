@@ -62,7 +62,7 @@ catch(PDOException $e)
     </div>
         <form class="form-group" method="post" action="">
           <label for="host">Host University ID:</label>
-          <?php 
+          <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -82,10 +82,13 @@ catch(PDOException $e)
             }
           ?>
           <label for="name">Name:</label>
+          <p class="form-text text-muted">Please enter the name of the competition.</p>
           <input class="form-control" id="name" name="name" required/>
           <label for="sdate">Start Date</label>
+          <p class="form-text text-muted">Please enter the start date of the competition.</p>
           <input class="form-control" type="date" id="sdate" name="sdate" required/>
           <label for="edate"> End Date:</label>
+          <p class="form-text text-muted">Please enter the end date of the competition.</p>
           <input class="form-control" type="date" id="edate" name="edate" required/>
           <div class = "text-center">
           <input type="submit" class="btn btn-primary text-center" name="submit"></input>
