@@ -214,13 +214,13 @@ catch(PDOException $e)
           </select>
           <h4>Dance:</h4>
           <input type="checkbox" value="Foxtrot" name="Foxtrot" id="Foxtrot"/>
-          <label for="Foxtrot">Foxtrot</label>
+          <label for="Foxtrot" style="font-size: 150%">Foxtrot</label>
           <input type="checkbox" value="Quickstep" name="Quickstep" id="Quickstep"/>
-          <label for="Quickstep">Quickstep</label>
+          <label for="Quickstep" style="font-size: 150%">Quickstep</label>
           <input type="checkbox" value="Tango" name="Tango" id="Tango"/>
-          <label for="Tango">Tango</label>
+          <label for="Tango" style="font-size: 150%">Tango</label>
           <input type="checkbox" value="Waltz" name="Waltz" id="Waltz"/>
-          <label for="Waltz">Waltz</label>
+          <label for="Waltz" style="font-size: 150%">Waltz</label>
           <div class = "text-center">
           <input type="submit" name="submit" class="btn btn-primary text-center"></input>
           </div>
