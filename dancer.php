@@ -8,8 +8,6 @@ try {
       $conn = new PDO("mysql:host=$servername;dbname=db_o2cm", $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Connected successfully";
-      echo "<br>";
       if(isset($_POST["submit"])) {
         if(isset($_POST["fname"]) & isset($_POST["lname"]) & isset($_POST["email"]) & isset($_POST["univ"]) & isset($_POST["llevel"]) & isset($_POST["flevel"])){
           echo "All fields have been filled out";
