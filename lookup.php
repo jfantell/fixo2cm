@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fix O2CM</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <link href="css/lab6.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -36,16 +35,16 @@
       $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       //display all users by selecting all users with a value of 1
-      $queryString = "SELECT u.first_name, u.last_name, c.name, u.leader_level, u.follow_level FROM users u, university c WHERE u.university_id=c.university_id";
+      $queryString = "SELECT u.user_id, u.first_name, u.last_name, c.name, u.leader_level, u.follow_level FROM users u, university c WHERE u.university_id=c.university_id";
       $stmt = $dbconn->prepare($queryString);
       $stmt->execute();
       $num = 0;
       //create a table to display the users in using bootstrap
-      $print = '<Table class = "table"><tr><th>First Name</th><th>Last Name</th><th>University</th><th>Lead Level</th><th>Follow Level</th></tr>';
+      $print = '<Table class = "table"><tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>University</th><th>Lead Level</th><th>Follow Level</th></tr>';
       //add each user to the table
       while($result = $stmt->fetch()){
         $num +=1;
-        $print = $print.'<tr><td>'.$result['first_name'].'</td><td>'.$result['last_name'].'</td><td>'.$result['name'].'</td><td>'.$result['leader_level'].'</td><td>'.$result['follow_level'].'</td></tr>';
+        $print = $print.'<tr><td>'.$result['user_id'].'</td><td>'.$result['first_name'].'</td><td>'.$result['last_name'].'</td><td>'.$result['name'].'</td><td>'.$result['leader_level'].'</td><td>'.$result['follow_level'].'</td></tr>';
       }
       $print = $print.'</table>';
       //if no users exist, then display that there are no users to display

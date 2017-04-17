@@ -9,7 +9,7 @@ try {
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       if(isset($_POST["submit"])) {
-        if(isset($_POST["fname"]) & isset($_POST["lname"]) & isset($_POST["email"]) & isset($_POST["univ"]) & isset($_POST["llevel"]) & isset($_POST["flevel"])){
+        if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["email"]) && isset($_POST["host"]) && isset($_POST["llevel"]) && isset($_POST["flevel"])){
           echo "All fields have been filled out";
           $statement = $conn->prepare("INSERT INTO users(first_name, last_name, email, university_id, leader_level, follow_level)
           VALUES(:fname, :lname, :email, :univ, :llevel, :flevel)");
@@ -17,7 +17,7 @@ try {
               "fname" => $_POST['fname'],
               "lname" => $_POST['lname'],
               "email" => $_POST['email'],
-              "univ" => $_POST['univ'],
+              "univ" => $_POST['host'],
               "llevel" => $_POST['llevel'],
               "flevel" => $_POST['flevel']
           ));
