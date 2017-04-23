@@ -24,6 +24,14 @@
 </head>
 <body>
   <h1>Users</h1>
+  <div class="text-centered">
+    <button type="button" id="home" class="btn btn-primary">Home</button>
+    <script>
+    $('#home').click(function(e){
+      location.assign('./index.html');
+    });
+    </script>
+  </div>
 
   <?php
     $servername = "localhost";
@@ -35,7 +43,7 @@
       $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       //display all users by selecting all users with a value of 1
-      $queryString = "SELECT u.user_id, u.first_name, u.last_name, c.name, u.leader_level, u.follow_level FROM users u, university c WHERE u.university_id=c.university_id";
+      $queryString = "SELECT u.user_id, u.first_name, u.last_name, c.name, u.leader_level, u.follow_level FROM users u, university c WHERE u.university_id=c.university_id ORDER BY u.last_name";
       $stmt = $dbconn->prepare($queryString);
       $stmt->execute();
       $num = 0;
@@ -58,5 +66,6 @@
       echo "Connection failed: " . $e->getMessage();
     }
   ?>
+
 </body>
 </html>
