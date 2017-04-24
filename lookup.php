@@ -23,6 +23,7 @@
 
 </head>
 <body>
+  <div class="well">
   <h1>Users</h1>
   <div class="text-centered">
     <button type="button" id="home" class="btn btn-primary">Home</button>
@@ -66,6 +67,12 @@
       echo "Connection failed: " . $e->getMessage();
     }
   ?>
-
+</div>
 </body>
+<style>
+.well{
+  background-color: white;
+  border-color: white;
+}
+</style>
 </html>

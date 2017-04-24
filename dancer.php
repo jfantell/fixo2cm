@@ -98,5 +98,12 @@ catch(PDOException $e)
             <input type="submit" class="btn btn-primary text-center" name="submit"></input>
             </div>
           </form>
+          </div>
 </body>
+<style>
+.well{
+  background-color: white;
+  border-color: white;
+}
+</style>
 </html>
